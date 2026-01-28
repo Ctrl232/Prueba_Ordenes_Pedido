@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Lista de Pedidos</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Cliente</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pedido of pedidos">
+        <td>{{ pedido.idOrden }}</td>
+        <td>{{ pedido.cliente?.nombre }}</td>
+        <td>{{ pedido.estado }}</td>
+        <td>
+          <button *ngIf="pedido.estado === 'Registrado'" class="btn btn-success" (click)="confirmarOrden(pedido.idOrden)">Confirmar</button>
+          <button *ngIf="pedido.estado === 'Registrado'" class="btn btn-danger" (click)="anularOrden(pedido.idOrden)">Anular</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
